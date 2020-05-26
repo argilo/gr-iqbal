@@ -36,7 +36,11 @@ namespace gr {
       float d_mag, d_phase;
 
      public:
+#ifdef BOOST_SHARED_PTR
       typedef boost::shared_ptr<fix_cc> sptr;
+#else
+      typedef std::shared_ptr<fix_cc> sptr;
+#endif
 
       static sptr make(float mag=0.0f, float phase=0.0f);
 
@@ -59,4 +63,3 @@ namespace gr {
 } // namespace gr
 
 #endif /* INCLUDED_IQBALANCE_FIX_CC_H */
-

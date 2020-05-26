@@ -38,7 +38,11 @@ namespace gr {
       float d_mag, d_phase;
 
      public:
+#ifdef BOOST_SHARED_PTR
       typedef boost::shared_ptr<optimize_c> sptr;
+#else
+      typedef std::shared_ptr<optimize_c> sptr;
+#endif
 
       static sptr make(int period=0);
 
@@ -67,4 +71,3 @@ namespace gr {
 } // namespace gr
 
 #endif /* INCLUDED_IQBALANCE_OPTIMIZE_C_H */
-
